@@ -37,9 +37,9 @@ extensions = [
 ]
 
 
-extensions += [
-    'matplotlib.sphinxext.only_directives',
-    'matplotlib.sphinxext.plot_directive']
+#extensions += [
+#    'matplotlib.sphinxext.only_directives',
+#    'matplotlib.sphinxext.plot_directive']
 
 autosummary_generate = False
 napoleon_google_docstring = False
