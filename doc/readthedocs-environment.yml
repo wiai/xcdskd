@@ -8,4 +8,4 @@ dependencies:
   - ipykernel
   - pip:
     - git+https://github.com/spatialaudio/nbsphinx.git@master
-    - rtd_sphinx_theme
+    - sphinx_rtd_theme
