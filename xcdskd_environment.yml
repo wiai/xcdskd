@@ -287,8 +287,7 @@ dependencies:
     - pytools==2017.6
     - scikit-cuda==0.5.1
     - scikit-ued==0.5.5
-    - sphinx-rtd-theme==0.2.4
-    - spiepy==0.1.2
+    - sphinx-rtd-theme
     - tables==3.4.3
     - tifffile==0.14.0
     - tqdm==4.19.8
