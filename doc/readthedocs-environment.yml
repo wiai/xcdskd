@@ -1,0 +1,11 @@
+channels:
+  - conda-forge
+dependencies:
+  - python>=3.6
+  - sphinx>=1.4
+  - pandoc
+  - nbconvert
+  - ipykernel
+  - pip:
+    - git+https://github.com/spatialaudio/nbsphinx.git@master
+    - rtd_sphinx_theme
