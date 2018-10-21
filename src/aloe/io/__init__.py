@@ -1,6 +1,6 @@
+""" crystal
+    ~~~~~~~~~~~~~~~~~~~
+    CHECK
+    :copyright: Copyright 2017 
+    :license: BSD, see LICENSE for details.
 """
-Input Output Tools
-"""
-
-import logging
-logging.getLogger(__name__).addHandler(logging.NullHandler())

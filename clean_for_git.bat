@@ -2,6 +2,7 @@ REM @echo off
 
 RMDIR /S /Q ".doctrees"
 RMDIR /S /Q "html"
+RMDIR /S /Q "latex"
 
 del /S /F *.pyc
 

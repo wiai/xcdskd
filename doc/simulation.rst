@@ -1,5 +1,5 @@
-Simulations
-===========
+Simulation
+==========
 
 .. toctree::
     :maxdepth: 2

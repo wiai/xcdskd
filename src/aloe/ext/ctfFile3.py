@@ -1,14 +1,10 @@
-#!/usr/bin/env python
 """
 ================================================================================
-:mod:`ctfFile` -- Reader of CTF file
+:mod:`ctfFile` -- Reader for CTF files
 ================================================================================
 
 .. module:: ctfFile
-   :synopsis: Reader of CTF file
-
-.. inheritance-diagram:: ebsdtools.hkl.tango.ctfFile
-
+   :synopsis: Reader for CTF files
 """
 
 # Script information for the file.

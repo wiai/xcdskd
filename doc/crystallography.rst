@@ -1,5 +1,5 @@
-Crystallography for Kikuchi Diffraction
-=======================================
+Crystallography
+===============
 
 .. toctree::
     :maxdepth: 2

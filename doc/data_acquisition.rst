@@ -1,9 +1,9 @@
-Data Acquisition & Data Conversion
-==================================
+Data Acquisition
+================
 
 .. toctree::
     :maxdepth: 2
     :glob:
 
-    experimental/exp_details.ipynb
     hdf5/hdf5.rst
+    experimental/exp_details.ipynb

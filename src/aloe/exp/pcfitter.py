@@ -13,7 +13,6 @@ logger = logging.getLogger(__name__)
 
 
 from ..math.euler import Rx,Rz,Ry
-#from xcdsebsd.crystal import ebsdconst
 from ..exp import calibpc 
 from ..plotting import pcplotter
 from ..plotting.make2Dmap import make2Dmap
@@ -24,24 +23,20 @@ def fit_hyper(Q):
     """
     general fit of hyperplanes to list of points
     
-    References:
-    -----------
+    See Also:
+
     Gander& Hrebicek, "Solving Problems in Scientific Computing", 3rd ed.
     Chapter 6, p. 97
     
-    Input:
-    ------
     
     Q[rows,cols] = XYZ[npoints,ndims]
     
-    Notes:
-    ------
     first rows contain hyperplane basis vectors
-    last row of V contains "normal" vector
-    in 2d this should hold:
-    V[0] x V[1] = V[2]
+    last row of V contains "normal" vector to hyperplany
+    In 2D this should hold: V[0] x V[1] = V[2]
     
-    L=p+c*v1 (v1=V[0]) is least square line through all data points
+    The least square line through all data points:
+    L=p+c*v1 (v1=V[0])
     
     """
     #p = Q.mean(axis=0)
@@ -104,7 +99,7 @@ class PCFitter(object):
         yz-projection is a line
         
         Input:
-        ------
+
         XYZ: point list XYZ[rows,cols] = XYZ[npoints,3]
 
         """
@@ -173,7 +168,7 @@ class PCFitter(object):
         fit 2D plane normal (v3) for list of 3D points
         
         Input:
-        ------
+
         XYZ: point list XYZ[rows,cols] = XYZ[npoints,3]
 
         """
@@ -283,13 +278,13 @@ class PCFitter(object):
     def fit_affine(self,X,Y,plotdir=''):
         """ least square affine transformation fit
             
-        Parameters:
-        -----------
+        Parameters
+        ----------
         X : beam indices 3D
         Y : pc values 3D
 
-        Notes:
-        ------
+        See Also
+        --------
         original code example from
         http://stackoverflow.com/questions/20546182/how-to-perform-coordinates-affine-transformation-using-python-part-2
         we only need 3D, not 4D as in example

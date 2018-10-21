@@ -11,6 +11,7 @@ BRKR_WIDTH_MICRONS: The full width of Bruker EBSD detector in microns.
     400x300, 160x120, but e.g. 400x288 or 160x115, the image has been clipped by removing some
     of its top lines and the effective BRKR_HEIGHT_MICRONS (see below) is reduced from its ideal
     4:3 value.
+    
 BRKR_HEIGHT_MICRONS: The full height of Bruker EBSD detector. 
     Due to hardware limitations, the top part of the measured patterns 
     can be removed by setting a "top clip" value in the measurement software.
@@ -20,6 +21,8 @@ BRKR_HEIGHT_MICRONS: The full height of Bruker EBSD detector.
     the possible top clip value has to be considered 
     because the PCX,PCY,DD are given relative to the pixel-image dimensions.
     The absolute physical image height then corresponds to BRKR_HEIGHT_MICRONS*(1.0-top_clip).
+    
+TIMEPIX_WIDTH_MICRONS, TIMEPIX_HEIGHT_MICRONS: Dimensions of the TIMEPIX detector.
     
 """
 

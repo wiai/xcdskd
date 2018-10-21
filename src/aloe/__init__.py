@@ -1,5 +1,5 @@
 """
-This is the aloe package docstring.
+The aloe package bundles the functionality for Kikuchi pattern analysis.
 """
 
 import logging

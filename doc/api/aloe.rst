@@ -12,35 +12,20 @@ Subpackages
 .. toctree::
 
     aloe.exp
+    aloe.ext
     aloe.fit
     aloe.image
     aloe.io
+    aloe.math
+    aloe.physics
+    aloe.plotting
+    aloe.sys
 
 Submodules
 ----------
 
-aloe.ebsdconst module
----------------------
+.. toctree::
 
-.. automodule:: aloe.ebsdconst
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-aloe.jutils module
-------------------
-
-.. automodule:: aloe.jutils
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-aloe.plots module
------------------
-
-.. automodule:: aloe.plots
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
+   aloe.jutils
+   aloe.plots
 
