@@ -16,7 +16,7 @@ from ..exp import ebsdconst
 
 
 def pcxyz_to_brkr(pc_xyz, top_clip=0.0):
-    """ convert detector pc coordinates into bruker convention
+    """ Convert detector pc coordinates into Bruker convention
     """
     image_width =ebsdconst.BRKR_WIDTH_MICRONS
     image_height=(1.0-top_clip)*ebsdconst.BRKR_HEIGHT_MICRONS
@@ -93,9 +93,7 @@ def calibratePC(ScanPointList,bcf_filename,mapinfo,XTilt=-20.0):
     in the PC estimation.
     
        
-    Assumptions: 
-    ------------
-    
+    Notes:
     * the SEM beam X-scan is exactly parallel to the X-Tilt detector axis
     * Bruker: XTilt=(SampleTilt-90)-DetectorTilt (deg)
     * i.e. SampleTilt=70 usually leads to NEGATIVE XTilts!!!
@@ -199,9 +197,7 @@ def calibratePC_BRKR(pcdata,mapinfo,XTilt=-20.0):
     in the PC estimation.
     
        
-    Assumptions: 
-    ------------
-    
+    Notes: 
     * the SEM beam X-scan is exactly parallel to the X-Tilt detector axis
     * Bruker: XTilt=(SampleTilt-90)-DetectorTilt (deg)
     * i.e. SampleTilt=70 usually leads to NEGATIVE XTilts!!!

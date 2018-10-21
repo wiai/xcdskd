@@ -14,8 +14,8 @@ path_doc=os.path.abspath('.')
 print(path_doc)
 sys.path.insert(0,path_doc)
 
-# parent dir of xcds package (with xcds/__init__.py)
-path_aloe=os.path.join(os.path.abspath(os.pardir))
+# parent dir of xcds package (with aloe/__init__.py)
+path_aloe=os.path.join(os.path.abspath(os.pardir))+"/src"
 print('Parent dir to aloe package: ', path_aloe)
 sys.path.insert(0,path_aloe)
 
@@ -30,7 +30,6 @@ extensions = [
     'sphinx.ext.autosummary',
     'sphinx.ext.todo',
     'sphinx.ext.mathjax',
-    'numpydoc',
     'sphinx.ext.napoleon',
     'sphinx.ext.ifconfig',
     'sphinx.ext.viewcode',
@@ -40,6 +39,7 @@ extensions = [
 #extensions += [
 #    'matplotlib.sphinxext.only_directives',
 #    'matplotlib.sphinxext.plot_directive']
+
 
 autosummary_generate = False
 napoleon_google_docstring = False

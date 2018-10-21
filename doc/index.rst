@@ -1,18 +1,20 @@
-Data Analysis Howtos for Electron Diffraction Methods in the SEM
-================================================================
-
-Most content shown below was generated directly from Jupyter notebooks.
+Tools for Kikuchi Diffraction in the SEM
+========================================
 
 .. toctree::
     :maxdepth: 2
     :glob:
 
-    usage/usage.ipynb
-    crystallography.rst
+    usage/getting_started.ipynb
     data_acquisition.rst 
-    bse_imaging.rst
-    pattern_processing.rst
+    image_processing.rst
     simulation.rst
-    errors.rst
+    quantification.rst
+    crystallography.rst
+    api/aloe
+    usage/usage.ipynb
     general/general_considerations.ipynb
-    api/modules
+
+
+    
+`xcdskd <https://github.com/wiai/xcdskd>`_ = *Cross-Correlation + Dynamical Simulations + Kikuchi Diffraction*

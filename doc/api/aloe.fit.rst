@@ -9,12 +9,7 @@ aloe.fit package
 Submodules
 ----------
 
-aloe.fit.ebsp\_detection\_model module
---------------------------------------
+.. toctree::
 
-.. automodule:: aloe.fit.ebsp_detection_model
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
+   aloe.fit.ebsp_detection_model
 
