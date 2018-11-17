@@ -74,12 +74,7 @@ def ntxc(NormRefImg, TestImg):
     return np.sum(NormRefImg*norm_img(TestImg))
 
     
-def xc_masked(img1, img2):
-    """ calculate xc for non-masked pixels only """
-    exp_norm, pix = norm_img_mask(img1)
-    sim_norm, pix = norm_img_mask(img2, mask=exp_norm.mask)
-    xc_cpu = nnxc(exp_norm, sim_norm)
-    return xc_cpu
+
 
     
 @numba.jit((numba.float64(numba.float64[:,:], numba.float64[:,:])), nopython=True, cache=True)
@@ -149,7 +144,29 @@ def mask_pattern_disk(pattern, rmax=0.5, rmin=-0.5, cx_outer=0.5, cy_outer=0.5, 
                 npixels += 1
     return masked_pattern, npixels
 
+@numba.jit(nopython=True)
+def mask_pattern_rect(pattern, rect=np.array([0.25, 0.75, 0.2, 0.8], dtype=np.float32)):
+    """ apply rectangular masks to pattern
+    [xmin, xmax, ymin, ymax] in pattern units of w, h
+    """
+    masked_pattern=np.copy(pattern)
+    width=pattern.shape[1]
+    height=pattern.shape[0]
 
+    wmin, wmax, hmin, hmax = rect 
+    pxmin = wmin * width    
+    pxmax = wmax * width
+    pymin = hmin * height   
+    pymax = hmax * height
+    npixels=0
+    for iy in range(height):
+        for ix in range(width):
+            if (ix < pxmin) or (ix > pxmax) or (iy < pymin) or (iy > pymax):
+                masked_pattern[iy, ix] = 0.0
+            else:
+                npixels += 1
+    return masked_pattern, npixels
+    
 def count_pixels(image):
     """
     count pixels with values larger than zero
@@ -157,6 +174,16 @@ def count_pixels(image):
     npixels = np.sum(image>0.0)
     return npixels
 
+    
+    
+def xc_masked(img1, img2):
+    """ calculate xc for non-masked pixels only """
+    exp_norm, pix = norm_img_mask(img1)
+    sim_norm, pix = norm_img_mask(img2, mask=exp_norm.mask)
+    xc_cpu = nnxc(exp_norm, sim_norm)
+    return xc_cpu
+    
+    
 
 def load_image(pattern_filename):
     """ load image from file as greyscale floats """

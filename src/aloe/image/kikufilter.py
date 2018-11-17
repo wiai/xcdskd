@@ -6,6 +6,8 @@ import numba
 from .filterfft import filter, gaussian
 from .downsample import downsample
 from .utils import img_to_uint
+from .nxcc import mask_pattern_disk
+
 
 def make_signal_bg_fft(image, sigma=None, support=None, bgscale=1.0):
     """ 
