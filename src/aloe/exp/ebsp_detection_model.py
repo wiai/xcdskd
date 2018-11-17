@@ -92,10 +92,12 @@ def ed_pattern(pattern, mix=1.0,  gradient_blur=3.0, gradient_clip=2.0, dtype=np
 
     
 def ebsp_detection_model(bkd, static_bg = None, bg_fwhm=0.8, bg_offset=0.01, 
+                      theory_blur=2.0,
                       bkd_signal=0.1, 
                       ed_mix=1.0,  gradient_blur=3.0, gradient_clip=2.0,
                       counts=20000, 
                       gauss_std=0.1, gauss_mean=0.01,
+                      
                       lens_blur=0.001,
                       cam_offset=0.0, cam_gain=1.0, cam_ngray=256, cam_gnoise=1.0,
                       dtype=np.uint8, mirror_ud=False):
@@ -104,6 +106,9 @@ def ebsp_detection_model(bkd, static_bg = None, bg_fwhm=0.8, bg_offset=0.01,
     model for experimental ebsp intensity with blur & noise
     """
     eps=0.00001
+    
+    # blur the theoretical pattern
+    bkd = gaussian_filter(bkd, theory_blur) 
     
     # E-D effekt on pure theory
     bkd = ed_pattern(bkd, mix=ed_mix, gradient_blur=gradient_blur, gradient_clip=gradient_clip, dtype=dtype)
