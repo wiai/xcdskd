@@ -1,7 +1,7 @@
 """ Filtering routines for Kikuchi patterns. """
 
 import numpy as np
-#from skimage import exposure
+import numba
 
 from .filterfft import filter, gaussian
 from .downsample import downsample
@@ -57,6 +57,38 @@ def remove_bg_fft(image, sigma=None, support=None):
     
     return np.true_divide(image, filter(image, gaussian(sigma,support)))
 
+    
+@numba.jit(nopython=True)
+def fill_pattern_tsl(pattern, rmax=0.48):
+    """ fill the outer part of tsl pattern by inversion at circle """
+    h, w = pattern.shape
+    xc = w / 2
+    yc = h / 2
+    pattern_filled = np.copy(pattern)
+    rmax_px = h * rmax
+    for iy in range(h):
+        ry = (iy-yc)
+        for ix in range(w):
+            rx = (ix-xc)
+            r = np.sqrt(ry**2 + rx**2)
+            if (r>rmax_px):
+                rinv = rmax_px/r
+                xinv = int(xc + rx*rinv)
+                yinv = int(yc + ry*rinv)
+                pattern_filled[iy,ix] = pattern[yinv,xinv]
+                
+    return pattern_filled
+
+
+def process_pattern_tsl(experiment, scale=None, sigma=0.1):
+    """ process experimental TSL pattern, rescale, mask by circle """
+    h,w = experiment.shape
+    if scale is not None:
+        experiment = resize(experiment, (h*scale, w*scale))
+    experiment = fill_pattern_tsl(experiment, rmax=0.475)    
+    experiment = process_ebsp(experiment, sigma=w*sigma) + 0.001
+    experiment, points = mask_pattern_disk(experiment, rmax=0.48)
+    return experiment
     
     
 def process_ebsp(raw_pattern=None, static_background=None, sigma=None,

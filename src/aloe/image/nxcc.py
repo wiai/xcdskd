@@ -72,7 +72,14 @@ def ntxc(NormRefImg, TestImg):
     
     """
     return np.sum(NormRefImg*norm_img(TestImg))
+
     
+def xc_masked(img1, img2):
+    """ calculate xc for non-masked pixels only """
+    exp_norm, pix = norm_img_mask(img1)
+    sim_norm, pix = norm_img_mask(img2, mask=exp_norm.mask)
+    xc_cpu = nnxc(exp_norm, sim_norm)
+    return xc_cpu
 
     
 @numba.jit((numba.float64(numba.float64[:,:], numba.float64[:,:])), nopython=True, cache=True)
