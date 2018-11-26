@@ -157,3 +157,21 @@ def rand_rotation_matrix(deflection=1.0, randnums=None):
     
     M = (np.outer(V, V) - np.eye(3)).dot(R)
     return M
+    
+    
+    
+def euler_tsl2global(phi1_tsl, Phi_tsl, phi2_tsl):
+    """
+    transform euler angles form edax-tsl software to global reference system
+    
+    see: M. Jackson etal. Integrating Materials and Manufacturing Innovation 2014, 3:4 Page 8 of 12
+        http://www.immijournal.com/content/3/1/4
+    """
+    from transforms3d import euler
+
+    # 2nd rotation is around NEGATIVE Y axis in global reference system,
+    # so we use negative angle around positive Y axis
+    Phi_tsl = -Phi_tsl
+    R = euler.euler2mat(phi1_tsl, Phi_tsl, phi2_tsl, 'rzyz')
+    phi1, Phi, phi2 = euler.mat2euler(R, 'rzxz') 
+    return np.array([phi1, Phi, phi2])
