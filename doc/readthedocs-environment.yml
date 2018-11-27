@@ -8,6 +8,7 @@ dependencies:
   - ipykernel
   - numpy
   - win32api
+  - matplotlib
   - pip:
     - git+https://github.com/spatialaudio/nbsphinx.git@master
     - sphinx_rtd_theme
