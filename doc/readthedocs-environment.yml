@@ -7,9 +7,9 @@ dependencies:
   - nbconvert
   - ipykernel
   - numpy
-  - pywin32
   - matplotlib
   - pip:
     - git+https://github.com/spatialaudio/nbsphinx.git@master
     - sphinx_rtd_theme
     - numpydoc
+    - pywin32
