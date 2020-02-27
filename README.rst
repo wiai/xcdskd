@@ -1,6 +1,10 @@
 xcdskd: Notebooks on Kikuchi Diffraction Methods
 ================================================
 
+.. image:: https://zenodo.org/badge/153128196.svg
+   :target: https://zenodo.org/badge/latestdoi/153128196
+
+
 The **xcdskd** project provides a collection of Jupyter notebooks which discuss and explain a number of 
 data analysis approaches which are applicable in the context of Kikuchi Diffraction Methods, 
 predominantly Electron Backscatter Diffraction (EBSD), 
@@ -20,7 +24,7 @@ and basis for further developments.
 Installation
 ------------
 
-We suggest to use the anaconda Python distribution.
+If you use the Anaconda Python distribution:
 
 Create a conda environment will all dependencies, named "xcdskd":
 
@@ -37,7 +41,3 @@ Install the aloe package in development mode (you can edit python modules in pla
 Build the html documentation 
 
     ./doc/rebuild_html.bat
-
-... and have fun with the notebooks! 
-
-
