@@ -4,6 +4,7 @@ xcdskd: Notebooks on Kikuchi Diffraction Methods
 .. image:: https://zenodo.org/badge/153128196.svg
    :target: https://zenodo.org/badge/latestdoi/153128196
 
+|  
 
 The **xcdskd** project provides a collection of Jupyter notebooks which discuss and explain a number of 
 data analysis approaches which are applicable in the context of Kikuchi Diffraction Methods, 
@@ -18,7 +19,6 @@ The focus of this project is more on the clear explanation of key concepts and w
 and less on how to reach the ultimate optimization of numerical efficiency.
 The project also aims to provide open, documented reference algorithms and example data as a benchmark
 and basis for further developments.
-
 
 
 Installation
