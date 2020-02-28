@@ -267,6 +267,7 @@ dependencies:
   - pymatgen
   - ruamel.yaml=0.15.25=py36_0
   - spglib=1.9.9.44=py36h38867aa_0
+  - pip
   - pip:
     - appdirs==1.4.3
     - autopep8==1.3.3
