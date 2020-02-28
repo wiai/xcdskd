@@ -6,8 +6,9 @@ dependencies:
   - pandoc
   - nbconvert
   - ipykernel
+  - pip
   - pip:
-    - git+https://github.com/spatialaudio/nbsphinx.git@master
+    - nbsphinx
     - sphinx_rtd_theme
     - numpydoc
 
