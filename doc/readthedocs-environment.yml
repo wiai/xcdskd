@@ -2,13 +2,10 @@ channels:
   - conda-forge
 dependencies:
   - python=3.6
-  - sphinx>=1.4
+  - sphinx=2.1.2
   - pandoc
   - nbconvert
   - ipykernel
-  - numpy
-  - matplotlib
-  - pip
   - pip:
     - git+https://github.com/spatialaudio/nbsphinx.git@master
     - sphinx_rtd_theme
