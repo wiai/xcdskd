@@ -1,5 +1,7 @@
 version: 2
 formats: all
-install:   
-  - requirements: doc/requirements.txt
+python: 
+  version: 3.7
+  install: 
+    - requirements: docs/requirements.txt
 system_packages: true
