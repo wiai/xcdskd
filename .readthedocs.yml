@@ -1,0 +1,1 @@
+yaml    version: 2    formats: all    conda:      file: doc/environment.yml
