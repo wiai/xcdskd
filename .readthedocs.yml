@@ -1,4 +1,5 @@
 version: 2
 formats: all
-conda:      
-  environment: doc/readthedocs-environment.yml
+install:   
+  - requirements: doc/requirements.txt
+system_packages: true
