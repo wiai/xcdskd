@@ -1,14 +1,15 @@
+yaml    
 channels:
-  - conda-forge
+  - conda-forge    
 dependencies:
-  - python=3.6
-  - sphinx=2.1.2
-  - pandoc
-  - nbconvert
-  - ipykernel
-  - pip
-  - pip:
+- python>=3 
+- pandoc
+- ipykernel
+- nbconvert
+- pip
+- pip:
     - nbsphinx
     - sphinx_rtd_theme
     - numpydoc
+    
 
