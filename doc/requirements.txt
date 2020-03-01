@@ -1,3 +1,6 @@
 sphinx>=1.4
 nbsphinx
 ipykernel
+pandoc
+nbconvert
+numpydoc 
