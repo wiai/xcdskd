@@ -3,6 +3,9 @@ xcdskd: Notebooks on Kikuchi Diffraction Methods
 
 .. image:: https://zenodo.org/badge/153128196.svg
    :target: https://zenodo.org/badge/latestdoi/153128196
+.. image:: https://readthedocs.org/projects/xcdskd/badge/?version=latest
+   :target: https://xcdskd.readthedocs.io/en/latest/?badge=latest
+   :alt: Documentation Status
 
 |  
 
