@@ -1,4 +1,3 @@
-yaml    
 version: 2
 formats: all
 conda:      
