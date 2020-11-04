@@ -44,5 +44,6 @@ Install the aloe package in development mode (you can edit python modules in pla
 Build the html documentation:
 
     cd doc    
+    
     rebuild_html.cmd
     
