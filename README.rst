@@ -41,6 +41,8 @@ Install the aloe package in development mode (you can edit python modules in pla
 
     python setup.py develop
     
-Build the html documentation 
+Build the html documentation:
 
-    ./doc/rebuild_html.bat
+    cd doc
+    rebuild_html.cmd
+    
