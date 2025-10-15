@@ -30,6 +30,7 @@ dependencies = [
     "pytest-cov>=4.0",
     "spglib>=1.16",
     "pymatgen>=2025.10",
+    "cmasher",
 ]
 
 [build-system]

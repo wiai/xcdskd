@@ -14,7 +14,6 @@ aloe_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fi
 aloe_h5oina_assets = os.path.join(aloe_root, "aloe/io/h5oina/assets")
 sys.path.insert(0, aloe_root)
 from aloe.io.edax import ang
-from aloe.io.h5oina import h5oinautils
 from aloe.image.kikufilter import process_pattern_tsl
 from aloe.image.downsample import downsample
 from aloe.image.utils import img_to_uint

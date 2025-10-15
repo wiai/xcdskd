@@ -29,9 +29,9 @@ Installation
 
 Using the portable WinPython distribution:
 
-1. Download and install WinPython::
+1. Download and install WinPython run (doubleclick):
 
-    python\setup_WinPython.cmd
+    ./python/install_WinPython_xcdskd.cmd
 
 2. This installs Python 3.12 and all dependencies automatically.
 

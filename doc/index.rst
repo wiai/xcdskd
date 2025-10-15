@@ -8,7 +8,6 @@ Tools for Kikuchi Diffraction in the SEM
     usage/getting_started.ipynb
     data_acquisition.rst 
     image_processing.rst
-    simulation.rst
     quantification.rst
     crystallography.rst
     api/aloe

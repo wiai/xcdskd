@@ -1,6 +1,8 @@
 /python/WPy*
 /python/WPy64-31370/
 /python/*.exe
+.kilocode/*
+/doc/api/*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
