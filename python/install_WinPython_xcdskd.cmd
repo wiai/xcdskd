@@ -67,7 +67,7 @@ cd /d "%~dp0\.."
 
 :: Install project with dependencies
 echo Installing aloe package and all dependencies...
-uv pip install -e .[scientific,dev] --system
+uv pip install -e . --system
 
 echo.
 echo ========================================
