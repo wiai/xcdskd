@@ -116,3 +116,10 @@ html/
 .python-version
 uv.lock
 .venv/
+
+# pytest
+.pytest_cache/
+.coverage
+htmlcov/
+*.cover
+.hypothesis/

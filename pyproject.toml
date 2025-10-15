@@ -33,6 +33,8 @@ dev = [
     "sphinx>=4.0",
     "nbsphinx>=0.8",
     "numpydoc>=1.1",
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
 ]
 
 [build-system]
@@ -44,3 +46,13 @@ where = ["src"]
 
 [tool.setuptools.package-data]
 aloe = ["data/*", "data/**/*"]
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-ra -q"
+testpaths = [
+    "tests",
+]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
