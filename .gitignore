@@ -1,4 +1,5 @@
 /python/WPy*
+/python/WPy64-31370/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -110,3 +111,8 @@ dist/
 .doctrees/
 html/
 *.ffs_db
+
+# uv package manager
+.python-version
+uv.lock
+.venv/

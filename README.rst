@@ -27,23 +27,25 @@ and basis for further developments.
 Installation
 ------------
 
-If you use the Anaconda Python distribution:
+Using the portable WinPython distribution:
 
-Create a conda environment will all dependencies, named "xcdskd":
+1. Download and install WinPython::
 
-    conda env create -f xcdskd_environment.yml
+    python\setup_python.bat
 
-Activate the environment:
+2. This installs Python 3.13.7 and all dependencies automatically.
 
-    activate xcdskd
+3. To use the environment::
 
-Install the aloe package in development mode (you can edit python modules in place):
+    python\run.cmd
 
-    python setup.py develop
-    
-Build the html documentation:
+For development, install optional dependencies::
 
-    cd doc    
-    
+    uv pip install -e .[dev]
+    uv pip install -e .[scientific]
+
+Build the html documentation::
+
+    cd doc
     rebuild_html.cmd
     
