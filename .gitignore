@@ -1,7 +1,8 @@
 /python/WPy*
 /python/WPy64-31370/
 /python/*.exe
-.kilocode/*
+.kilocode
+.vscode
 /doc/api/*
 
 # Byte-compiled / optimized / DLL files
