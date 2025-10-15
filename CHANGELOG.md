@@ -9,7 +9,7 @@ All notable changes to this project will be documented in this file.
 ### 🚀 Major Changes
 
 #### Package Management & Build System Modernization
-- **Migrated from setup.py to pyproject.toml** - Adopted PEP 621 standard for modern Python packaging
+- **Removed legacy setup.py** - Fully migrated to pyproject.toml (PEP 621 standard)
 - **Replaced conda with uv package manager** - Faster, more reliable dependency resolution
 - **Updated to WinPython 3.13.7.0slim** - Portable Python environment (upgraded from 3.12.1)
 - **Automated setup scripts** - One-click installation with `python/setup_python.bat`
@@ -24,6 +24,21 @@ All notable changes to this project will be documented in this file.
 - **Created comprehensive SETUP.md** - New installation and setup guide
 - **Updated README.rst** - Modern WinPython-based installation instructions
 - **Enhanced .gitignore** - Added uv, pytest, and WinPython-specific exclusions
+
+#### Script Updates
+- **Updated doc/run_notebook.cmd** - Now uses WPy64-31370 and uv package manager
+- **Updated apps/tsl2h5oina/run.cmd** - Updated to use new WinPython version
+
+#### Version Management System
+- **Created python/version_config.txt** - Centralized WinPython version configuration
+- **Created python/get_python_version.bat** - Helper script for version management
+- **Updated all scripts** - Now use configuration system instead of hardcoded versions
+- **Easy version switching** - Change version in one file, affects all scripts
+
+#### Download Method Improvements
+- **Fixed install_WinPython.bat** - Replaced PowerShell with curl for downloading
+- **Added fallback method** - Uses bitsadmin if curl fails
+- **No Python dependency** - Download method doesn't require Python
 
 ### 🔧 Technical Improvements
 
@@ -41,7 +56,7 @@ All notable changes to this project will be documented in this file.
 
 | Component | Before | After |
 |-----------|--------|-------|
-| **Package Config** | setup.py | pyproject.toml |
+| **Package Config** | setup.py | pyproject.toml (only) |
 | **Package Manager** | pip (manual) | uv (automated) |
 | **Python Version** | 3.12.1 | 3.13.7.0slim |
 | **Environment** | Conda | WinPython (portable) |

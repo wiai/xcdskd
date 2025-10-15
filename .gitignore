@@ -1,5 +1,6 @@
 /python/WPy*
 /python/WPy64-31370/
+/python/*.exe
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

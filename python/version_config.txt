@@ -1,0 +1,16 @@
+# WinPython Version Configuration for xcdskd
+# ============================================
+#
+# To switch between different WinPython versions:
+# 1. Change the version below to the desired WinPython directory name
+# 2. Ensure the corresponding WinPython directory exists in python/
+# 3. Restart any running Python environments
+#
+# Current installed versions can be found by running: dir python\WPy* /b
+#
+# Examples of valid versions:
+# WINPYTHON_VERSION=WPy64-31370  (Python 3.13.7.0)
+# WINPYTHON_VERSION=WPy64-312101 (Python 3.12.1.0)
+# WINPYTHON_VERSION=WPy64-31190  (Python 3.11.9.0)
+#
+WINPYTHON_VERSION=WPy64-312101

@@ -2,9 +2,11 @@
 :: Script to download and install WinPython 3.13.7.0slim
 
 set PYTHON_DIR=%~dp0
-set WINPYTHON_URL=https://github.com/winpython/winpython/releases/download/17.2.20250920final/WinPython64-3.13.7.0slim.exe
-set WINPYTHON_EXE=WinPython64-3.13.7.0slim.exe
-set WINPYTHON_TARGET=WPy64-31370
+set WINPYTHON_URL=https://github.com/winpython/winpython/releases/download/16.6.20250620final/Winpython64-3.12.10.1slim.exe
+set WINPYTHON_EXE=Winpython64-3.12.10.1slim.exe
+set WINPYTHON_VERSION=WPy64-312101
+
+set WINPYTHON_TARGET=%WINPYTHON_VERSION%
 
 echo ========================================
 echo WinPython Setup for xcdskd
@@ -21,8 +23,14 @@ echo.
 echo Downloading WinPython...
 echo URL: %WINPYTHON_URL%
 
-:: Download using PowerShell
-powershell -Command "& {[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityPointManager]::Tls12; Invoke-WebRequest -Uri '%WINPYTHON_URL%' -OutFile '%PYTHON_DIR%%WINPYTHON_EXE%'}"
+:: Download using curl (Windows 10 1803+ has curl built-in)
+curl -L "%WINPYTHON_URL%" -o "%PYTHON_DIR%%WINPYTHON_EXE%"
+
+:: Alternative download method using bitsadmin (Windows 7+)
+if errorlevel 1 (
+    echo Retrying with bitsadmin...
+    bitsadmin /transfer "WinPythonDownload" "%WINPYTHON_URL%" "%PYTHON_DIR%%WINPYTHON_EXE%"
+)
 
 if not exist "%PYTHON_DIR%%WINPYTHON_EXE%" (
     echo ERROR: Download failed!

@@ -15,7 +15,7 @@ class TestSetupValidation:
         """Test that all required files exist."""
         required_files = [
             'pyproject.toml',
-            'python/setup_python.bat',
+            'python/install_WinPython.bat',
             'python/run.cmd',
             'python/install_deps.bat',
             'SETUP.md',
@@ -45,7 +45,7 @@ class TestSetupValidation:
     def test_batch_scripts_exist(self):
         """Test that batch scripts exist and have basic content."""
         scripts = [
-            'python/setup_python.bat',
+            'python/install_WinPython.bat',
             'python/run.cmd',
             'python/install_deps.bat'
         ]
@@ -69,7 +69,7 @@ class TestSetupValidation:
             content = f.read()
 
         assert len(content) > 0, "SETUP.md is empty"
-        assert 'python\\setup_python.bat' in content, "SETUP.md should mention setup script"
+        assert 'python\\install_WinPython.bat' in content, "SETUP.md should mention install script"
 
     def test_gitignore_updated(self):
         """Test that .gitignore includes uv and WinPython entries."""
