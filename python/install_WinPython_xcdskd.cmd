@@ -13,10 +13,9 @@ echo WinPython Setup for xcdskd
 echo ========================================
 
 if exist "%PYTHON_DIR%%WINPYTHON_TARGET%" (
-    echo WinPython already installed at: %PYTHON_DIR%%WINPYTHON_TARGET%
-    choice /C YN /M "Do you want to reinstall?"
-    if errorlevel 2 goto :end
-    rmdir /S /Q "%PYTHON_DIR%%WINPYTHON_TARGET%"
+    echo WinPython Version %PYTHON_DIR%%WINPYTHON_TARGET% already installed. 
+    echo If you want to re-install, delete this directory first: %PYTHON_DIR%%WINPYTHON_TARGET%
+    goto :end
 )
 
 echo.
@@ -67,7 +66,8 @@ pip install uv
 cd /d "%~dp0\.."
 
 :: Install project with dependencies
-uv pip install -e .
+echo Installing aloe package and all dependencies...
+uv pip install -e .[scientific,dev] --system
 
 echo.
 echo ========================================

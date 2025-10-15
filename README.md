@@ -31,18 +31,22 @@ Using the portable WinPython distribution:
 
 1. Download and install WinPython::
 
-    python\setup_python.bat
+    python\setup_WinPython.cmd
 
-2. This installs Python 3.13.7 and all dependencies automatically.
+2. This installs Python 3.12 and all dependencies automatically.
 
 3. To use the environment::
 
     python\run.cmd
 
-For development, install optional dependencies::
+Installing dependencies of aloe on any Python system:
+on xcdskd root dir: 
 
-    uv pip install -e .[dev]
-    uv pip install -e .[scientific]
+in venv:
+uv pip install -e .
+
+or system wide
+uv pip install -e . --system
 
 Build the html documentation::
 
