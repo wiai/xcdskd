@@ -19,7 +19,7 @@ and basis for further developments.
 Standalone Installation with a Portable WinPython
 -------------------------------------------------
 
-1. On the current GitHub page, goto the button "<> Code" and select "Download ZIP", this will download "xcdskd-main.zip"
+1. At the top of the current GitHub page, click the button "<> Code" and select "Download ZIP", this will download "xcdskd-main.zip"
 
 2. Unpack "xcdskd-main.zip" to a working directory on your machine
 
