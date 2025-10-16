@@ -31,9 +31,10 @@ Standalone Installation with a Portable WinPython
 
 4. The applications in "apps" should now recognize the WinPython installation and should be runnable by clicking the respective "run.cmd"
 
-Start a command line by clicking "cmd.cmd", this will use the WinPython installation that was installed above.
-You can start arbitrary Python code with the WinPython installation by calling "python\run.cmd some_code.py".
+5. To work with the Jupyter notebooks, start a command line by clicking "cmd.cmd", and enter "start jupyter notebook", this will start the jupyter server and a UI in your webbrowser, where you can select the jupyter notebook to start.
 
+
+You can start arbitrary Python code with the WinPython installation by calling "python\run.cmd some_code.py".
 Manual install of dependencies of aloe using uv:
 
 in a uv virtual environment:  uv pip install -e .
