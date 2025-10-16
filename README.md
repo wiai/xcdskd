@@ -1,14 +1,6 @@
 xcdskd: Notebooks on Kikuchi Diffraction Methods
 ================================================
 
-.. image:: https://zenodo.org/badge/153128196.svg
-   :target: https://zenodo.org/badge/latestdoi/153128196
-.. image:: https://readthedocs.org/projects/xcdskd/badge/?version=latest
-   :target: https://xcdskd.readthedocs.io/en/latest/?badge=latest
-   :alt: Documentation Status
-
-|  
-
 The **xcdskd** project provides a collection of Jupyter notebooks which discuss and explain a number of 
 data analysis approaches which are applicable in the context of Kikuchi Diffraction Methods, 
 predominantly Electron Backscatter Diffraction (EBSD), 
@@ -24,32 +16,26 @@ The project also aims to provide open, documented reference algorithms and examp
 and basis for further developments.
 
 
-Installation
-------------
+Standalone Installation with a Portable WinPython
+-------------------------------------------------
 
-Using the portable WinPython distribution:
+1. On the current GitHub page, goto the button "<> Code" and select "Download ZIP", this will download "xcdskd-main.zip"
 
-1. Download and install WinPython run (doubleclick):
+2. Unpack "xcdskd-main.zip" to a working directory on your machine
+
+3. Install WinPython, in the subdirectory "python" doubleclick:
 
     ./python/install_WinPython_xcdskd.cmd
 
-2. This installs Python 3.12 and all dependencies automatically.
+   This installs Python 3.12 and all dependencies for xcdskd automatically.
 
-3. To use the environment::
+4. The applications in "apps" should now recognize the WinPython installation and should be runnable by clicking the respective "run.cmd"
 
-    python\run.cmd
+Start a command line by clicking "cmd.cmd", this will use the WinPython installation that was installed above.
+You can start arbitrary Python code with the WinPython installation by calling "python\run.cmd some_code.py".
 
-Installing dependencies of aloe on any Python system:
-on xcdskd root dir: 
+Manual install of dependencies of aloe using uv:
 
-in venv:
-uv pip install -e .
+in a uv virtual environment:  uv pip install -e .
+system wide                :  uv pip install -e . --system
 
-or system wide
-uv pip install -e . --system
-
-Build the html documentation::
-
-    cd doc
-    rebuild_html.cmd
-    
