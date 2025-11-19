@@ -1,7 +1,7 @@
 """ Filtering routines for Kikuchi patterns. """
 
 import numpy as np
-import numba
+from numba import jit, njit, prange
 import math as m
 
 from PIL import Image
@@ -15,55 +15,68 @@ from .utils import img_to_uint, img_to_signed_int
 from .nxcc import mask_pattern_disk, standard_img
 
 
-@numba.jit(nopython=True)
+
+@njit(parallel=True)
 def lmsd(img, kernelsize, result):
     h = img.shape[0]
     w = img.shape[1]
     
     nkernelpoints = (2*kernelsize+1)**2
-    for i in range(0,h):
-        for j in range(0,w):
-            sum = 0.0
+    inv_nkernelpoints = 1.0 / nkernelpoints  # Pre-compute division
+    
+    for i in prange(0, h):
+        for j in range(0, w):
+            # Single pass: compute mean and collect values
+            sum_val = 0.0
+            
             for ik in range(-kernelsize, kernelsize+1):
                 for jk in range(-kernelsize, kernelsize+1):
-                    
+                    # Simplified boundary handling
                     ip = i + ik
-                    jp = j + jk 
-                    if (ip<0):
-                        ip *= -1
-                    if (ip>(h-1)):
-                        ip = (h-1) - (ip-h)
-                    if (jp<0):
-                        jp *= -1
-                    if (jp>(w-1)):
-                        jp = (w-1) - (jp-w)
+                    jp = j + jk
                     
-                    sum += img[ip,jp]
-            mean = sum/nkernelpoints
+                    # Mirror boundary conditions (more efficient)
+                    if ip < 0:
+                        ip = -ip
+                    elif ip >= h:
+                        ip = 2*h - ip - 2
+                    
+                    if jp < 0:
+                        jp = -jp
+                    elif jp >= w:
+                        jp = 2*w - jp - 2
+                    
+                    sum_val += img[ip, jp]
+            
+            mean = sum_val * inv_nkernelpoints
     
-            # stddev
+            # Compute standard deviation
             ssum = 0.0
             for ik in range(-kernelsize, kernelsize+1):
                 for jk in range(-kernelsize, kernelsize+1):
-                    
                     ip = i + ik
-                    jp = j + jk 
-                    if (ip<0):
-                        ip *= -1
-                    if (ip>(h-1)):
-                        ip = (h-1) - (ip-h)
-                    if (jp<0):
-                        jp *= -1
-                    if (jp>(w-1)):
-                        jp = (w-1) - (jp-w)
+                    jp = j + jk
                     
-                    ssum += (img[ip,jp]-mean) * (img[ip,jp]-mean)
-            stddev = m.sqrt(ssum/nkernelpoints)
-
-            result[i,j] = 0.0
-            if (abs(stddev) > 1e-8):
-                result[i,j] = (img[i,j] - mean)/stddev
+                    if ip < 0:
+                        ip = -ip
+                    elif ip >= h:
+                        ip = 2*h - ip - 2
+                    
+                    if jp < 0:
+                        jp = -jp
+                    elif jp >= w:
+                        jp = 2*w - jp - 2
+                    
+                    diff = img[ip, jp] - mean
+                    ssum += diff * diff
             
+            stddev = m.sqrt(ssum * inv_nkernelpoints)
+
+            # Compute result
+            if stddev > 1e-8:
+                result[i, j] = (img[i, j] - mean) / stddev
+            else:
+                result[i, j] = 0.0
     return
 
 
@@ -157,7 +170,7 @@ def remove_bg_fft(image, sigma=None, support=None):
     return img
 
     
-@numba.jit(nopython=True)
+@jit(nopython=True)
 def fill_pattern_tsl(pattern, rmax=0.47):
     """ fill the outer part of tsl pattern by inversion at circle """
     h, w = pattern.shape
@@ -244,7 +257,7 @@ def process_ebsp(raw_pattern=None, static_background=None, sigma=None,
     
     # lmsd filter
     if lmsd is not None:
-        kernelsize_pix = lmsd_rel * raw_pattern.shape[1]
+        kernelsize_pix = lmsd * raw_pattern.shape[1]
         pattern_dyn = filter_lmsd(pattern_dyn, kernelsize_pix)
     
     # conversion to 8 or 16 bit integer data
